@@ -1,0 +1,38 @@
+---
+import { ETSY_URL, PAYHIP_URL } from "../consts";
+
+interface Props {
+  heading?: string;
+  body?: string;
+}
+
+const {
+  heading = "Ready to stop rebuilding the same page from scratch?",
+  body = "Browse the full TemplateNest collection — Notion systems, Canva kits, and PowerPoint decks, ready to customize in minutes.",
+} = Astro.props;
+---
+
+<div class="bg-grain relative overflow-hidden rounded-3xl bg-ink px-8 py-12 text-center sm:px-14">
+  <div class="relative mx-auto max-w-xl">
+    <h3 class="font-display text-2xl font-semibold text-paper sm:text-3xl">{heading}</h3>
+    <p class="mt-3 text-sm leading-relaxed text-paper/70 sm:text-base">{body}</p>
+    <div class="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a
+        href={ETSY_URL}
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        class="w-full rounded-full bg-clay px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-clay-dark sm:w-auto"
+      >
+        Shop on Etsy
+      </a>
+      <a
+        href={PAYHIP_URL}
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        class="w-full rounded-full border border-paper/30 px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-paper/10 sm:w-auto"
+      >
+        Shop on Payhip
+      </a>
+    </div>
+  </div>
+</div>

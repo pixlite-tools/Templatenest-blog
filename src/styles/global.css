@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@import "@fontsource/fraunces/400.css";
+@import "@fontsource/fraunces/500-italic.css";
+@import "@fontsource/fraunces/600.css";
+@import "@fontsource/fraunces/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #faf6ef;
+  --color-paper-dim: #f2ebdd;
+  --color-ink: #201a14;
+  --color-ink-soft: #55493c;
+  --color-clay: #b5502f;
+  --color-clay-dark: #963e21;
+  --color-moss: #5c6b4f;
+  --color-line: #e4d9c4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* subtle paper grain so flat color fields don't look sterile */
+.bg-grain {
+  position: relative;
+}
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
+.prose-nest {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  line-height: 1.75;
+}
+.prose-nest h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-ink);
+}
+.prose-nest h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-nest p {
+  margin-bottom: 1.25rem;
+}
+.prose-nest ul,
+.prose-nest ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+.prose-nest ul {
+  list-style: disc;
+}
+.prose-nest ol {
+  list-style: decimal;
+}
+.prose-nest li {
+  margin-bottom: 0.5rem;
+}
+.prose-nest a {
+  color: var(--color-clay-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-nest strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.prose-nest blockquote {
+  border-left: 3px solid var(--color-clay);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--color-ink-soft);
+  margin: 1.75rem 0;
+}
+.prose-nest code {
+  background: var(--color-paper-dim);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}

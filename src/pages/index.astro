@@ -1,0 +1,113 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { getCollection } from "astro:content";
+import { ETSY_URL, PAYHIP_URL } from "../consts";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const featuredPost = posts.find((p) => p.data.featured) ?? posts[0];
+const restPosts = posts.filter((p) => p.id !== featuredPost.id).slice(0, 4);
+
+const pillars = [
+  {
+    title: "Notion Systems",
+    body: "Dashboards and trackers built for people who want their second brain to actually work.",
+  },
+  {
+    title: "Canva Kits",
+    body: "Editable, on-brand design kits — social templates, planners, and print-ready pages.",
+  },
+  {
+    title: "PowerPoint Decks",
+    body: "Presentation templates that make a rushed Tuesday-night deck look intentional.",
+  },
+];
+---
+
+<BaseLayout>
+  <section class="mx-auto max-w-6xl px-6 pb-20 pt-16 sm:pt-24">
+    <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-clay-dark">
+          Notion · Canva · PowerPoint
+        </p>
+        <h1 class="mt-4 font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl">
+          Templates that make your work — and your desk — feel put-together.
+        </h1>
+        <p class="mt-5 max-w-lg text-base leading-relaxed text-ink-soft sm:text-lg">
+          TemplateNest designs digital templates for people who would rather hit "duplicate"
+          than start from a blank page. Read the guides, then grab the templates.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={ETSY_URL}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            class="rounded-full bg-ink px-6 py-3.5 text-center text-sm font-semibold text-paper transition-colors hover:bg-clay-dark"
+          >
+            Browse the Etsy shop
+          </a>
+          <a
+            href="/blog/"
+            class="rounded-full border border-line px-6 py-3.5 text-center text-sm font-semibold text-ink transition-colors hover:border-ink"
+          >
+            Read the blog
+          </a>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="bg-grain aspect-square rounded-[2.5rem] bg-gradient-to-br from-clay to-[#5c6b4f] p-8 shadow-2xl">
+          <div class="flex h-full flex-col justify-between rounded-3xl border border-paper/20 p-6">
+            <p class="font-display text-sm uppercase tracking-widest text-paper/80">Featured collection</p>
+            <div>
+              <p class="font-display text-3xl font-semibold text-paper">The Reset</p>
+              <p class="mt-2 text-sm text-paper/80">A Notion + Canva planning system, remade for 2026.</p>
+            </div>
+            <a
+              href={PAYHIP_URL}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              class="inline-flex w-fit items-center gap-2 rounded-full bg-paper px-4 py-2 text-xs font-semibold text-ink"
+            >
+              View on Payhip ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-line bg-paper-dim py-16">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid gap-8 sm:grid-cols-3">
+        {
+          pillars.map((pillar) => (
+            <div class="rounded-2xl border border-line bg-paper p-6">
+              <h2 class="font-display text-lg font-semibold text-ink">{pillar.title}</h2>
+              <p class="mt-2 text-sm leading-relaxed text-ink-soft">{pillar.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="mb-10 flex items-end justify-between">
+      <h2 class="font-display text-2xl font-semibold text-ink sm:text-3xl">From the blog</h2>
+      <a href="/blog/" class="text-sm font-medium text-clay-dark hover:underline">View all posts →</a>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2">
+      <PostCard post={featuredPost} featured />
+      {restPosts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 pb-24">
+    <CtaBanner />
+  </section>
+</BaseLayout>

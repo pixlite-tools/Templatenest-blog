@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+---
+
+<BaseLayout
+  title="About"
+  description="TemplateNest designs Notion, Canva, and PowerPoint templates for people who'd rather duplicate than start from scratch."
+>
+  <section class="mx-auto max-w-2xl px-6 py-16 sm:py-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-clay-dark">About</p>
+    <h1 class="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+      Templates should save you time, not become another project.
+    </h1>
+
+    <div class="prose-nest mt-10">
+      <p>
+        TemplateNest started from a simple frustration: most digital templates look great in the
+        preview image and fall apart the moment you actually try to use them. Locked layouts,
+        confusing Notion databases, fonts you don't own — the "shortcut" turns into a Saturday
+        afternoon of troubleshooting.
+      </p>
+      <p>
+        So the templates here are built the other way around — starting from the workflow, not
+        the screenshot. Every Notion system, Canva kit, and PowerPoint deck is designed to be
+        duplicated, lightly edited, and used the same day.
+      </p>
+      <h2>What you'll find here</h2>
+      <ul>
+        <li>Notion systems for planning, client work, and personal organization.</li>
+        <li>Canva kits for social content, print planners, and brand materials.</li>
+        <li>PowerPoint templates for pitches, reports, and reviews.</li>
+        <li>Blog guides on choosing, customizing, and actually sticking with a template.</li>
+      </ul>
+      <p>
+        The full catalog lives on Etsy and Payhip — the blog here is where the thinking behind it
+        gets written down.
+      </p>
+    </div>
+
+    <div class="mt-14">
+      <CtaBanner />
+    </div>
+  </section>
+</BaseLayout>

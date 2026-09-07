@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { ETSY_URL, PAYHIP_URL } from "../consts";
+
+const products = [
+  {
+    name: "The Reset — Notion Life OS",
+    category: "Notion",
+    blurb: "Tasks, habits, finances, and goals in one calm dashboard. Duplicate and go.",
+    price: "$18",
+    gradient: "from-[#5c6b4f] to-[#3f4a37]",
+  },
+  {
+    name: "Founder Deck — Pitch Template",
+    category: "PowerPoint",
+    blurb: "A 16-slide investor deck template with a clean, confident layout.",
+    price: "$24",
+    gradient: "from-[#4f5b6b] to-[#333c47]",
+  },
+  {
+    name: "Studio Social Kit",
+    category: "Canva",
+    blurb: "60 editable social templates for creative businesses. Fully brandable.",
+    price: "$15",
+    gradient: "from-[#b5502f] to-[#7c3620]",
+  },
+  {
+    name: "Freelancer Client Hub",
+    category: "Notion",
+    blurb: "Client intake, project tracking, and invoicing, wired together.",
+    price: "$22",
+    gradient: "from-[#6f5c8a] to-[#463a5c]",
+  },
+  {
+    name: "Weekly Planner — Print Edition",
+    category: "Canva",
+    blurb: "A printable weekly planner with a quiet, editorial layout.",
+    price: "$9",
+    gradient: "from-[#8a6a3f] to-[#5c4527]",
+  },
+  {
+    name: "Quarterly Review Deck",
+    category: "PowerPoint",
+    blurb: "Present quarterly results without rebuilding the deck from zero.",
+    price: "$19",
+    gradient: "from-[#3f7a6b] to-[#294f45]",
+  },
+];
+---
+
+<BaseLayout
+  title="Shop"
+  description="Browse TemplateNest's Notion, Canva, and PowerPoint templates — available on Etsy and Payhip."
+>
+  <section class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-clay-dark">The shop</p>
+    <h1 class="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+      Templates, ready when you are
+    </h1>
+    <p class="mt-3 max-w-xl text-base text-ink-soft">
+      Every template previewed here lives on Etsy and Payhip. Tap a card to see the full listing,
+      previews, and instant download.
+    </p>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        products.map((product) => (
+          <div class="flex flex-col overflow-hidden rounded-3xl border border-line bg-paper">
+            <div class={`bg-grain flex h-32 items-center justify-center bg-gradient-to-br ${product.gradient}`}>
+              <span class="font-display text-2xl font-semibold text-paper/90">{product.category}</span>
+            </div>
+            <div class="flex flex-1 flex-col p-6">
+              <h3 class="font-display text-lg font-semibold text-ink">{product.name}</h3>
+              <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-soft">{product.blurb}</p>
+              <div class="mt-5 flex items-center justify-between">
+                <span class="font-display text-lg font-semibold text-clay-dark">{product.price}</span>
+                <div class="flex gap-2">
+                  <a
+                    href={ETSY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    class="rounded-full bg-ink px-4 py-2 text-xs font-semibold text-paper hover:bg-clay-dark"
+                  >
+                    Etsy
+                  </a>
+                  <a
+                    href={PAYHIP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    class="rounded-full border border-line px-4 py-2 text-xs font-semibold text-ink hover:border-ink"
+                  >
+                    Payhip
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-8 text-xs text-ink-soft">
+      Listings shown here are a preview — the current catalog and pricing always live on Etsy and
+      Payhip.
+    </p>
+
+    <div class="mt-16">
+      <CtaBanner
+        heading="Can't decide which template fits?"
+        body="The blog has guides for picking the right Notion, Canva, or PowerPoint template for your workflow."
+      />
+    </div>
+  </section>
+</BaseLayout>

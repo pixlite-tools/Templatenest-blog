@@ -1,0 +1,69 @@
+---
+import Mark from "./Mark.astro";
+import { NAV_LINKS, ETSY_URL } from "../consts";
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
+---
+
+<header class="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="shrink-0">
+      <Mark />
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
+      {
+        NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class={`text-sm font-medium transition-colors hover:text-clay-dark ${
+              isActive(link.href) ? "text-clay-dark" : "text-ink-soft"
+            }`}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a
+      href={ETSY_URL}
+      target="_blank"
+      rel="noopener noreferrer sponsored"
+      class="hidden shrink-0 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-clay-dark md:inline-flex"
+    >
+      Shop on Etsy
+    </a>
+
+    <details class="relative md:hidden">
+      <summary class="grid h-9 w-9 cursor-pointer list-none place-items-center rounded-full border border-line text-ink">
+        <span class="sr-only">Menu</span>
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+          <path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.5" />
+        </svg>
+      </summary>
+      <div class="absolute right-0 mt-3 w-48 rounded-2xl border border-line bg-paper p-3 shadow-xl">
+        {
+          NAV_LINKS.map((link) => (
+            <a
+              href={link.href}
+              class="block rounded-lg px-3 py-2 text-sm font-medium text-ink-soft hover:bg-paper-dim hover:text-ink"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          href={ETSY_URL}
+          target="_blank"
+          rel="noopener noreferrer sponsored"
+          class="mt-1 block rounded-lg bg-ink px-3 py-2 text-center text-sm font-medium text-paper"
+        >
+          Shop on Etsy
+        </a>
+      </div>
+    </details>
+  </div>
+</header>
