@@ -9,9 +9,11 @@ Everything below is a placeholder and needs to be swapped for your real data bef
 
 1. **Store links** — `src/consts.ts` has `ETSY_URL` and `PAYHIP_URL`. Replace both with your real
    shop URLs. They're used everywhere (header, footer, CTAs) from this one file.
-2. **Site URL** — `astro.config.mjs`'s `site` field and `public/robots.txt`'s `Sitemap` line both
-   use `https://templatenest.example.com`. Replace with your real domain once you have one (needed
-   for the sitemap and RSS feed to generate correct absolute URLs).
+2. **Site URL** — `astro.config.mjs`'s `site`/`base` fields and `public/robots.txt`'s `Sitemap`
+   line currently point at the live GitHub Pages URL (see "Deploying" below). If you move to a
+   custom domain or Cloudflare/Netlify at the root, update `site` to that domain and **delete the
+   `base` line** in `astro.config.mjs` — then run a find-and-replace for
+   `https://pixlite-tools.github.io/Templatenest-blog` across the repo.
 3. **Shop page products** — `src/pages/shop.astro` has a `products` array of example listings
    (name, price, blurb). These are illustrative placeholders, not real products — replace them
    with your actual Etsy/Payhip catalog, or wire this page up to pull live listings via the Etsy
@@ -56,12 +58,23 @@ npm run preview   # preview the production build locally
 
 ## Deploying
 
-This is a static site (`astro build` outputs to `dist/`) and deploys for free to any static host:
+**This site is currently live on GitHub Pages**, deployed automatically by
+`.github/workflows/deploy.yml` on every push to `main`:
+
+> https://pixlite-tools.github.io/Templatenest-blog/
+
+No manual steps needed — push to `main` and the workflow builds and redeploys the site. Because
+it's a GitHub Pages *project* site (not a custom domain), `astro.config.mjs` sets
+`base: "/Templatenest-blog"` so all internal links resolve correctly under that subpath (see the
+`url()` helper in `src/consts.ts` — every internal `href`/asset path in the codebase goes through
+it for this reason).
+
+This is a static site (`astro build` outputs to `dist/`), so it also deploys for free to any other
+static host if you'd rather move off GitHub Pages later:
 
 - **Cloudflare Pages**: connect the GitHub repo, build command `npm run build`, output directory
-  `dist`.
+  `dist`. Set a custom domain and delete the `base` line in `astro.config.mjs` (see above).
 - **Netlify**: same build command/output directory.
-- **GitHub Pages**: use the official [`withastro/action`](https://github.com/withastro/action).
 
 No backend, database, or server is required — it's all pre-rendered HTML.
 

@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PostCard from "../components/PostCard.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 import { getCollection } from "astro:content";
-import { ETSY_URL, PAYHIP_URL } from "../consts";
+import { ETSY_URL, PAYHIP_URL, url } from "../consts";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -51,7 +51,7 @@ const pillars = [
             Browse the Etsy shop
           </a>
           <a
-            href="/blog/"
+            href={url("/blog/")}
             class="rounded-full border border-line px-6 py-3.5 text-center text-sm font-semibold text-ink transition-colors hover:border-ink"
           >
             Read the blog
@@ -99,7 +99,7 @@ const pillars = [
   <section class="mx-auto max-w-6xl px-6 py-20">
     <div class="mb-10 flex items-end justify-between">
       <h2 class="font-display text-2xl font-semibold text-ink sm:text-3xl">From the blog</h2>
-      <a href="/blog/" class="text-sm font-medium text-clay-dark hover:underline">View all posts →</a>
+      <a href={url("/blog/")} class="text-sm font-medium text-clay-dark hover:underline">View all posts →</a>
     </div>
     <div class="grid gap-6 md:grid-cols-2">
       <PostCard post={featuredPost} featured />

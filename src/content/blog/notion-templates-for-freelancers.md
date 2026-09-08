@@ -55,4 +55,4 @@ For services you might offer later, or process improvements you don't have time 
 
 None of these templates are complicated. The value isn't the database structure — it's not having to *design* the structure yourself while you're also trying to do client work. A good template is a decision you only have to make once.
 
-If you'd rather start from something built with exactly this workflow in mind, [The Reset — Notion Life OS](/shop/) bundles most of the above into one connected system, ready to duplicate.
+If you'd rather start from something built with exactly this workflow in mind, [The Reset — Notion Life OS](../../shop/) bundles most of the above into one connected system, ready to duplicate.

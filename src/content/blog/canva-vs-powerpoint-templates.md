@@ -41,4 +41,4 @@ A growing number of buyers use both: a Canva version for quick internal drafts a
 2. **Placeholder count vs. your actual content.** A 12-slide template with only 6 layout variations will mean a lot of manual rework if your deck runs to 20 slides.
 3. **Editable vs. locked elements.** Some cheaper templates lock background graphics — fine for speed, frustrating if you need full control.
 
-If you're deciding between the two for an upcoming pitch, the [Founder Deck template](/shop/) ships as a native PowerPoint file specifically because that's what gets opened cold on someone else's laptop in a room you don't control — which, for investor meetings, is usually the safer bet.
+If you're deciding between the two for an upcoming pitch, the [Founder Deck template](../../shop/) ships as a native PowerPoint file specifically because that's what gets opened cold on someone else's laptop in a room you don't control — which, for investor meetings, is usually the safer bet.

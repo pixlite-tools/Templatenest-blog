@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { url } from "../consts";
 
 interface Props {
   post: CollectionEntry<"blog">;
@@ -27,7 +28,7 @@ const gradient = palette[category] ?? palette.Guide;
 ---
 
 <a
-  href={`/blog/${post.id}/`}
+  href={url(`blog/${post.id}/`)}
   class={`group flex flex-col overflow-hidden rounded-3xl border border-line bg-paper transition-all hover:-translate-y-1 hover:shadow-xl ${featured ? "md:col-span-2 md:flex-row" : ""}`}
 >
   <div

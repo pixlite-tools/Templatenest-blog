@@ -40,4 +40,4 @@ Ask yourself two questions:
 
 You don't have to pick one lane forever. A reasonable approach: use free templates to figure out what layout and structure you actually want, then buy a paid template once you know exactly what "done right" looks like for your specific use case. At that point you're not gambling on a paid template blind — you're buying the version of what you already know you need, minus the hours it would take to build it yourself.
 
-If you've already tried the free route and hit its limits, the templates in the [TemplateNest shop](/shop/) are built past the "narrow, single-purpose" stage free templates usually stop at.
+If you've already tried the free route and hit its limits, the templates in the [TemplateNest shop](../../shop/) are built past the "narrow, single-purpose" stage free templates usually stop at.

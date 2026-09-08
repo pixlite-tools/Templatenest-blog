@@ -41,4 +41,4 @@ Most sellers include a free sample page or a short preview video — actually op
 
 A planner "working" doesn't mean using every section perfectly for a year. It means opening it most days without friction. If a layout gets you to open the app more often than you did before, it's doing its job — regardless of how many features you never touch.
 
-Looking for a weekly layout that leans editorial rather than cluttered? The [Weekly Planner — Print Edition](/shop/) keeps the grid simple on purpose, so it's one of the templates people actually still use three months in.
+Looking for a weekly layout that leans editorial rather than cluttered? The [Weekly Planner — Print Edition](../../shop/) keeps the grid simple on purpose, so it's one of the templates people actually still use three months in.

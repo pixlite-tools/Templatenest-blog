@@ -21,3 +21,13 @@ export const SOCIALS = [
   { label: "Etsy", href: ETSY_URL },
   { label: "Payhip", href: PAYHIP_URL },
 ];
+
+// Astro's BASE_URL already accounts for the `base` option in astro.config.mjs
+// (e.g. "/" when deployed at a domain root, "/repo-name/" on GitHub Pages
+// project sites). Use `url()` for every internal link/asset path so the site
+// keeps working under either setup without edits elsewhere.
+export function url(path: string): string {
+  const base = import.meta.env.BASE_URL.replace(/\/+$/, "") + "/";
+  const clean = path.replace(/^\/+/, "");
+  return clean ? `${base}${clean}` : base;
+}

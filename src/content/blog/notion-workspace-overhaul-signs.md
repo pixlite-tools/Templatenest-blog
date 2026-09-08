@@ -40,4 +40,4 @@ An overhaul doesn't mean starting from zero. It means:
 
 A structural rebuild done once, deliberately, beats six months of small patches that never quite fix the underlying drift.
 
-If you'd rather start from a workspace built with this structure already in place, [The Reset — Notion Life OS](/shop/) is built around exactly one database per job — no duplicate homes, no orphaned pages.
+If you'd rather start from a workspace built with this structure already in place, [The Reset — Notion Life OS](../../shop/) is built around exactly one database per job — no duplicate homes, no orphaned pages.

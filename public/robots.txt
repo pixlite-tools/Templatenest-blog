@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://templatenest.example.com/sitemap-index.xml
+Sitemap: https://pixlite-tools.github.io/Templatenest-blog/sitemap-index.xml

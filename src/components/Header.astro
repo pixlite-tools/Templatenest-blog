@@ -1,15 +1,17 @@
 ---
 import Mark from "./Mark.astro";
-import { NAV_LINKS, ETSY_URL } from "../consts";
+import { NAV_LINKS, ETSY_URL, url } from "../consts";
 
 const path = Astro.url.pathname;
-const isActive = (href: string) =>
-  href === "/" ? path === "/" : path.startsWith(href);
+const isActive = (href: string) => {
+  const target = url(href);
+  return href === "/" ? path === target : path.startsWith(target);
+};
 ---
 
 <header class="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href="/" class="shrink-0">
+    <a href={url("/")} class="shrink-0">
       <Mark />
     </a>
 
@@ -17,7 +19,7 @@ const isActive = (href: string) =>
       {
         NAV_LINKS.map((link) => (
           <a
-            href={link.href}
+            href={url(link.href)}
             class={`text-sm font-medium transition-colors hover:text-clay-dark ${
               isActive(link.href) ? "text-clay-dark" : "text-ink-soft"
             }`}
@@ -48,7 +50,7 @@ const isActive = (href: string) =>
         {
           NAV_LINKS.map((link) => (
             <a
-              href={link.href}
+              href={url(link.href)}
               class="block rounded-lg px-3 py-2 text-sm font-medium text-ink-soft hover:bg-paper-dim hover:text-ink"
             >
               {link.label}

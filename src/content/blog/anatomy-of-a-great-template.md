@@ -37,4 +37,4 @@ A Canva template that looks perfect on-screen but exports with clipped text, or 
 
 None of this is really about aesthetics. A template that gets these details right saves you the exact thing you bought it to save: time. One that gets them wrong quietly costs you more time than starting from scratch would have, because now you're troubleshooting someone else's structure instead of building your own.
 
-Every template in the [TemplateNest shop](/shop/) gets tested through its full edit-and-export path before it's listed — not just previewed inside the design tool it was built in.
+Every template in the [TemplateNest shop](../../shop/) gets tested through its full edit-and-export path before it's listed — not just previewed inside the design tool it was built in.

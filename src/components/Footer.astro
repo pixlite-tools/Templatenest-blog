@@ -1,6 +1,6 @@
 ---
 import Mark from "./Mark.astro";
-import { SITE_TAGLINE, ETSY_URL, PAYHIP_URL, NAV_LINKS } from "../consts";
+import { SITE_TAGLINE, ETSY_URL, PAYHIP_URL, NAV_LINKS, url } from "../consts";
 
 const year = new Date().getFullYear();
 ---
@@ -19,7 +19,7 @@ const year = new Date().getFullYear();
           {
             NAV_LINKS.map((link) => (
               <li>
-                <a href={link.href} class="text-sm text-ink-soft hover:text-clay-dark">
+                <a href={url(link.href)} class="text-sm text-ink-soft hover:text-clay-dark">
                   {link.label}
                 </a>
               </li>
