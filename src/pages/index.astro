@@ -15,14 +15,20 @@ const pillars = [
   {
     title: "Notion Systems",
     body: "Dashboards and trackers built for people who want their second brain to actually work.",
+    image: "/images/pillar-notion.jpg",
+    gradient: "from-[#5c6b4f] to-[#3f4a37]",
   },
   {
     title: "Canva Kits",
     body: "Editable, on-brand design kits — social templates, planners, and print-ready pages.",
+    image: null,
+    gradient: "from-[#b5502f] to-[#7c3620]",
   },
   {
     title: "PowerPoint Decks",
     body: "Presentation templates that make a rushed Tuesday-night deck look intentional.",
+    image: null,
+    gradient: "from-[#4f5b6b] to-[#333c47]",
   },
 ];
 ---
@@ -60,8 +66,16 @@ const pillars = [
       </div>
 
       <div class="relative">
-        <div class="bg-grain aspect-square rounded-[2.5rem] bg-gradient-to-br from-clay to-[#5c6b4f] p-8 shadow-2xl">
-          <div class="flex h-full flex-col justify-between rounded-3xl border border-paper/20 p-6">
+        <div class="relative aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl">
+          <img
+            src={url("/images/hero-desk.jpg")}
+            alt="A cozy wooden desk with an open notebook, closed laptop, coffee, and a small plant in warm morning light"
+            class="h-full w-full object-cover"
+            width="1254"
+            height="1254"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/0 to-ink/0"></div>
+          <div class="absolute inset-x-0 bottom-0 flex flex-col gap-3 p-8">
             <p class="font-display text-sm uppercase tracking-widest text-paper/80">Featured collection</p>
             <div>
               <p class="font-display text-3xl font-semibold text-paper">The Reset</p>
@@ -86,9 +100,23 @@ const pillars = [
       <div class="grid gap-8 sm:grid-cols-3">
         {
           pillars.map((pillar) => (
-            <div class="rounded-2xl border border-line bg-paper p-6">
-              <h2 class="font-display text-lg font-semibold text-ink">{pillar.title}</h2>
-              <p class="mt-2 text-sm leading-relaxed text-ink-soft">{pillar.body}</p>
+            <div class="overflow-hidden rounded-2xl border border-line bg-paper">
+              {pillar.image ? (
+                <img
+                  src={url(pillar.image)}
+                  alt=""
+                  class="h-40 w-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div class={`bg-grain flex h-40 items-center justify-center bg-gradient-to-br ${pillar.gradient}`}>
+                  <span class="font-display text-2xl font-semibold text-paper/90">{pillar.title.split(" ")[0]}</span>
+                </div>
+              )}
+              <div class="p-6">
+                <h2 class="font-display text-lg font-semibold text-ink">{pillar.title}</h2>
+                <p class="mt-2 text-sm leading-relaxed text-ink-soft">{pillar.body}</p>
+              </div>
             </div>
           ))
         }
